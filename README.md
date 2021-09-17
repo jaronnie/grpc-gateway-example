@@ -19,3 +19,11 @@ protoc -I ./proto \
   ./proto/*.proto
 ```
 
+## http 调用
+
+```shell
+curl -X POST -k http://localhost:8090/v1/example/echo -d '{"name": " hello"}'               
+
+curl -X POST -k http://localhost:8090/v1/init/crt -d '{"id":1, "name":"11", "type":"input"}'
+```
+
