@@ -9,21 +9,29 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 
-	helloworldpb "github.com/jaronnie/grpc-gateway-example/proto/helloworld"
+	"github.com/jaronnie/grpc-gateway-example/proto"
 )
 
 type server struct {
-	helloworldpb.UnimplementedGreeterServer
+	proto.UnimplementedGreeterServer
 }
 
 func NewServer() *server {
 	return &server{}
 }
 
-func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error) {
-	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
+func (s *server) SayHello(ctx context.Context, in *proto.HelloRequest) (*proto.HelloReply, error) {
+	return &proto.HelloReply{Message: in.Name + " world"}, nil
 }
-
+func (s *server) InitCredential(ctx context.Context, in *proto.InitCredentialRequest) (*proto.InitCredentialReply, error) {
+	return &proto.InitCredentialReply{
+		Id:       in.Id,
+		Name:     in.Name,
+		Type:     in.Type,
+		Args:     in.Args,
+		FullData: in.FullData,
+	}, nil
+}
 func main() {
 	// Create a listener on TCP port
 	lis, err := net.Listen("tcp", ":8080")
@@ -34,7 +42,7 @@ func main() {
 	// Create a gRPC server object
 	s := grpc.NewServer()
 	// Attach the Greeter service to the server
-	helloworldpb.RegisterGreeterServer(s, &server{})
+	proto.RegisterGreeterServer(s, &server{})
 	// Serve gRPC server
 	log.Println("Serving gRPC on 0.0.0.0:8080")
 	go func() {
@@ -55,7 +63,7 @@ func main() {
 
 	gwmux := runtime.NewServeMux()
 	// Register Greeter
-	err = helloworldpb.RegisterGreeterHandler(context.Background(), gwmux, conn)
+	err = proto.RegisterGreeterHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		log.Fatalln("Failed to register gateway:", err)
 	}
