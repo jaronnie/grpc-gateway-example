@@ -7,9 +7,9 @@ import (
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"google.golang.org/grpc"
-
 	"github.com/jaronnie/grpc-gateway-example/proto"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type server struct {
@@ -34,17 +34,18 @@ func (s *server) InitCredential(ctx context.Context, in *proto.InitCredentialReq
 }
 func main() {
 	// Create a listener on TCP port
-	lis, err := net.Listen("tcp", ":8080")
+	lis, err := net.Listen("tcp", ":9603")
 	if err != nil {
 		log.Fatalln("Failed to listen:", err)
 	}
 
 	// Create a gRPC server object
 	s := grpc.NewServer()
+	reflection.Register(s)
 	// Attach the Greeter service to the server
 	proto.RegisterGreeterServer(s, &server{})
 	// Serve gRPC server
-	log.Println("Serving gRPC on 0.0.0.0:8080")
+	log.Println("Serving gRPC on 0.0.0.0:9603")
 	go func() {
 		log.Fatalln(s.Serve(lis))
 	}()
@@ -53,7 +54,7 @@ func main() {
 	// This is where the gRPC-Gateway proxies the requests
 	conn, err := grpc.DialContext(
 		context.Background(),
-		"0.0.0.0:8080",
+		"0.0.0.0:9603",
 		grpc.WithBlock(),
 		grpc.WithInsecure(),
 	)
