@@ -91,3 +91,22 @@ $ grpcurl -plaintext -d '{"name":"hello"}' localhost:9603 proto.Greeter/SayHello
 }
 ```
 
+## Docker
+
+test http and grpc
+
+test ok
+
+## Kubernetes
+
+### NodePort
+
+test http and grpc 
+
+when export how to write protocol
+
+TCP test ok
+
+### Ingress
+
+TODO: test how to write protocol

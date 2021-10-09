@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-grpc-gateway
+spec:
+  selector:
+    app: kube-grpc-gateway
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9603
+    targetPort: 9603
+  - name: grpc
+    protocol: TCP
+    port: 8090
+  type: NodePort

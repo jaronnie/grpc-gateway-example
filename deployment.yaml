@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-grpc-gateway
+spec:
+  selector:
+    matchLabels:
+      app: kube-grpc-gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kube-grpc-gateway
+    spec:
+      containers:
+        - name: kube-grpc-gateway
+          image: "gocloudcoder/kube-grpc-gateway:v1"
+          ports:
+          - name: http
+            containerPort: 9603
+          - name: grpc
+            containerPort: 8090
