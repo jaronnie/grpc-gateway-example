@@ -110,3 +110,13 @@ TCP test ok
 ### Ingress
 
 TODO: test how to write protocol
+
+```shell
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=grpc.kube.go-app.com/O=grpc.kube.go-app.com"
+```
+```shell
+kubectl create secret tls grpc.kube.go-app.com  --key tls.key --cert tls.crt
+```
+```shell
+grpcurl -insecure grpc.kube.go-app.com:443 list proto.Greeter
+```
