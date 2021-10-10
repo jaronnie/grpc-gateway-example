@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+  name: kube-grpc-gateway
+spec:
+  rules:
+  - host: grpc.kube.go-app.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kube-grpc-gateway
+            port:
+              number: 9603
+  tls:
+  - secretName: grpc.kube.go-app.com
+    hosts:
+      - grpc.kube.go-app.com
