@@ -3,9 +3,13 @@ module github.com/jaronnie/grpc-gateway-example
 go 1.16
 
 require (
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.5.0 // indirect
-	google.golang.org/genproto v0.0.0-20210617175327-b9e0b3197ced // indirect
-	google.golang.org/grpc v1.38.0 // indirect
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0 // indirect
-	google.golang.org/protobuf v1.27.1 // indirect
+	github.com/fsnotify/fsnotify v1.5.1
+	github.com/golang/protobuf v1.3.2
+	github.com/grpc-ecosystem/grpc-gateway v1.12.1
+	github.com/olekukonko/tablewriter v0.0.5
+	github.com/pkg/errors v0.9.1
+	github.com/spf13/cobra v1.0.0
+	github.com/spf13/viper v1.6.3
+	google.golang.org/genproto v0.0.0-20190927181202-20e1ac93f88c
+	google.golang.org/grpc v1.26.0
 )

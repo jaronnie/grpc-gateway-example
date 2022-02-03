@@ -2,29 +2,22 @@
 
 >  参考 https://grpc-ecosystem.github.io/grpc-gateway/
 
-## 环境
-
-* Go: 1.16
-* Protoc: libprotoc 3.16.0
-* protoc-gen-go: v1.27.1
-* protoc-gen-go-grpc: 1.1.0
-
-## 生成
+## generate grpc code
 
 ```shell
-protoc -I ./proto \                                          
-  --go_out ./proto --go_opt paths=source_relative \
-  --go-grpc_out ./proto --go-grpc_opt paths=source_relative \
-  --grpc-gateway_out ./proto --grpc-gateway_opt paths=source_relative \
-  ./proto/*.proto
+make proto
+```
+
+## deploy
+```shell
+docker build -t jaronnie/kube-grpc-gateway:v2 .
+docker run -itd -p 8090:8090 -p 9603:9603 jaronnie/kube-grpc-gateway:v2 
 ```
 
 ## http 调用
 
 ```shell
 curl -X POST -k http://localhost:8090/v1/example/echo -d '{"name": " hello"}'               
-
-curl -X POST -k http://localhost:8090/v1/init/crt -d '{"id":1, "name":"11", "type":"input"}'
 ```
 ## grpc 调用
 
@@ -44,28 +37,19 @@ go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 ```shell
 $ grpcurl -plaintext localhost:9603 list 
 grpc.reflection.v1alpha.ServerReflection
-proto.Greeter
+proto.Core
 ```
 
 查询服务提供的方法
 
-`grpcurl -plaintext localhost:9603 list proto.Greeter`
+`grpcurl -plaintext localhost:9603 list proto.Core`
 
 查看更详细的描述
 
-`grpcurl -plaintext localhost:9603 describe proto.Greeter`
+`grpcurl -plaintext localhost:9603 describe proto.Core`
 
 ```shell
-$ grpcurl -plaintext localhost:9603 describe proto.Greeter     
-proto.Greeter is a service:
-service Greeter {
-  rpc InitCredential ( .proto.InitCredentialRequest ) returns ( .proto.InitCredentialReply ) {
-    option (.google.api.http) = { post:"/v1/init/crt" body:"*"  };
-  }
-  rpc SayHello ( .proto.HelloRequest ) returns ( .proto.HelloReply ) {
-    option (.google.api.http) = { post:"/v1/example/echo" body:"*"  };
-  }
-}
+$ grpcurl -plaintext localhost:9603 describe proto.Core     
 ```
 
 获取类型信息
@@ -82,41 +66,11 @@ message HelloRequest {
 
 调用服务方法
 
-`grpcurl -plaintext -d '{"name":"hello"}' localhost:9603 proto.Greeter/SayHello`
+`grpcurl -plaintext -d '{"name":"hello"}' localhost:9603 proto.Core/SayHello`
 
 ```shell
-$ grpcurl -plaintext -d '{"name":"hello"}' localhost:9603 proto.Greeter/SayHello
+$ grpcurl -plaintext -d '{"name":"hello"}' localhost:9603 proto.Core/SayHello
 {
   "message": "hello world"
 }
-```
-
-## Docker
-
-test http and grpc
-
-test ok
-
-## Kubernetes
-
-### NodePort
-
-test http and grpc 
-
-when export how to write protocol
-
-TCP test ok
-
-### Ingress
-
-TODO: test how to write protocol
-
-```shell
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=grpc.kube.go-app.com/O=grpc.kube.go-app.com"
-```
-```shell
-kubectl create secret tls grpc.kube.go-app.com  --key tls.key --cert tls.crt
-```
-```shell
-grpcurl -insecure grpc.kube.go-app.com:443 list proto.Greeter
 ```

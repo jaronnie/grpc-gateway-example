@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kube-grpc-gateway
-          image: "gocloudcoder/kube-grpc-gateway:v1"
+          image: "jaronnie/kube-grpc-gateway:v2"
           ports:
           - name: http
             containerPort: 9603
