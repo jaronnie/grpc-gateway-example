@@ -2,12 +2,9 @@ package booter
 
 import (
 	"context"
-	"os"
 	"os/exec"
 	"strings"
 	"time"
-
-	"github.com/jaronnie/grpc-gateway-example/util"
 )
 
 // Running is Running
@@ -18,30 +15,10 @@ func Running(bin string) (run bool, pid string) {
 	return !(pidStr == ""), pidStr
 }
 
-// run App
-func runApp(console bool, a app) (err error) {
-	cmd := exec.Command(a.bin, a.args...)
-
-	if console {
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		return cmd.Run()
-	}
-
-	logOutput, err := util.Open(a.log)
-	if err != nil {
-		return err
-	}
-	defer logOutput.Close()
-	cmd.Stdout = logOutput
-	cmd.Stderr = logOutput
-	return cmd.Start()
-}
-
 // Started is Started
 func Started(bin string) (s bool, pid string) {
 	// add time out
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*1)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	defer cancel()
 	ticker := time.NewTicker(time.Millisecond * 100)
 	defer ticker.Stop()

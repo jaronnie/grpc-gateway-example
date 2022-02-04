@@ -24,7 +24,6 @@ func RunAppWithName(bin string) (err error) {
 
 	// no log file default
 	if err = cmd.Start(); err != nil {
-		fmt.Println("start err")
 		return err
 	}
 	if s, pid := Started(bin); s {

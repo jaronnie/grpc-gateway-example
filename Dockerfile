@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN go mod tidy && go build -o /app/cmd/core cmd/main.go
+RUN go mod tidy && go build -o /app/cmd/grpc-gateway-example cmd/main.go
 
 EXPOSE 9603
 
@@ -18,4 +18,4 @@ EXPOSE 8090
 
 WORKDIR /app/cmd
 
-ENTRYPOINT ["./core", "start", "-d"]
+ENTRYPOINT ["./grpc-gateway-example", "start", "-d"]

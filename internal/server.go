@@ -14,7 +14,7 @@ import (
 )
 
 func (app *App) grpcServer() (s *grpc.Server, err error) {
-	fmt.Println("start grpc server 0.0.0.0:", app.GrpcPort)
+	fmt.Printf("start grpc server 0.0.0.0:%s\n", app.GrpcPort)
 	listen, err := net.Listen("tcp", "0.0.0.0:"+app.GrpcPort)
 	if err != nil {
 		panic(err)
@@ -33,7 +33,7 @@ func (app *App) grpcServer() (s *grpc.Server, err error) {
 }
 
 func (app *App) gatewayServer() (s *http.Server, err error) {
-	fmt.Println("start gateway server 0.0.0.0:", app.HttpPort)
+	fmt.Printf("start gateway server 0.0.0.0:%s\n", app.HttpPort)
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 	if err := proto.RegisterCoreHandlerFromEndpoint(context.Background(), mux, "0.0.0.0:"+app.GrpcPort, opts); err != nil {

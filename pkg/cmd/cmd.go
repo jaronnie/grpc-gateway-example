@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/jaronnie/grpc-gateway-example/internal"
 	"github.com/jaronnie/grpc-gateway-example/pkg/booter"
@@ -13,7 +14,7 @@ import (
 )
 
 var (
-	appName      = "core"
+	appName      = "grpc-gateway-example" // must be unique
 	exitAfterCmd = true
 )
 
@@ -63,7 +64,6 @@ func execute(app interface{}, ctx *internal.Context) (err error) {
 			fmt.Println("set dir failed: ", err)
 			os.Exit(-1)
 		}
-		fmt.Println("set workdir : ", abs)
 		_ = os.Chdir(abs)
 	}
 
@@ -130,6 +130,8 @@ var restartCmd = &cobra.Command{
 		if err = booter.StopAppWithName(appName); err != nil {
 			return err
 		}
+		exitAfterCmd = false
+		time.Sleep(time.Second)
 		if err = booter.RunAppWithName(appName); err != nil {
 			return err
 		}

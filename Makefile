@@ -1,20 +1,47 @@
+AppName=grpc-gateway-example
+
+
 .PHONY: proto
 proto:
-	@echo "===========> Generate grpc source codes"
+	@echo "===========Generate grpc source codes==========="
 	@sh ./script/proto.sh
 
 .PHONY: build
 build:
-	@echo "===========> Build binary"
-	@go mod tidy && go build -o cmd/core cmd/main.go
+	@echo "===========Build application==========="
+	@sh ./script/build.sh
 
 .PHONY: run
 run:
-	@echo "===========> run binary"
-	@go mod tidy && go build -o cmd/core cmd/main.go
-	@sh -c "cd cmd; ./core start -d"
+	@echo "===========Run application==========="
+	@sh -c "./cmd/"${AppName}" --dir=./cmd start --nodaemon"
+
+.PHONY: start
+start:
+	@echo "===========Run application with daemon==========="
+	@sh -c "nohup ./cmd/"${AppName}" --dir=./cmd start --nodaemon &> "${AppName}".log &"
+
+.PHONY: restart
+restart:
+	@echo "===========Restart application==========="
+	@sh -c "nohup ./cmd/"${AppName}" --dir=./cmd restart &> "${AppName}".log &"
+
+.PHONY: status
+status:
+	@echo "===========Get application status==========="
+	@sh -c "./cmd/"${AppName}" --dir=./cmd status"
+
+.PHONY: version
+version:
+	@echo "===========Get application version==========="
+	@sh -c "./cmd/"${AppName}" --dir=./cmd version"
+
+.PHONY: stop
+stop:
+	@echo "===========Stop application==========="
+	@sh -c "./cmd/"${AppName}" --dir=./cmd stop"
 
 .PHONY: clean
 clean:
-	@echo "===========> clean binary"
-	@rm -f cmd/core
+	@echo "===========Clean application==========="
+	@rm -f cmd/"${AppName}"
