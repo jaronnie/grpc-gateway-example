@@ -3,6 +3,7 @@ package internal
 import (
 	"net/http"
 
+	"github.com/jaronnie/grpc-gateway-example/pkg/logx"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 )
@@ -33,6 +34,9 @@ type Context struct {
 
 // Init application init
 func (app *App) Init() (err error) {
+	logx.Logger()
+
+	logx.Infof("app init")
 	app.GrpcPort = viper.GetString("grpc.port")
 	app.HttpPort = viper.GetString("http.port")
 	return
@@ -40,6 +44,7 @@ func (app *App) Init() (err error) {
 
 // Run application run
 func (app *App) Run() (err error) {
+	logx.Infof("app run")
 	go func() {
 		_, err := app.grpcServer()
 		if err != nil {

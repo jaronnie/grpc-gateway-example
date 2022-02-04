@@ -2,7 +2,7 @@
 
 set -e
 
-AppName=grpc-gateway-example
+AppName=grpc-gateway-example-app
 ROOT_PACKAGE=github.com/jaronnie/grpc-gateway-example
 VERSION_PACKAGE="${ROOT_PACKAGE}"/pkg/version
 

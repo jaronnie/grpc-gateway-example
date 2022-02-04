@@ -16,12 +16,14 @@ func main() {
 	app := internal.App{}
 
 	if err := cmd.PreBuild(app, &app.Ctx); err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	// config
 	cm := config.NewConfigManager(app.Ctx.AppName)
-	_ = cm.NewConfig()
+	if err := cm.NewConfig(); err != nil {
+		panic(err)
+	}
 
 	// init app
 	if err := app.Init(); err != nil {

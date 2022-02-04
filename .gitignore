@@ -1,5 +1,6 @@
 .idea/
 dist/
 tools/
-cmd/grpc-gateway-example
+cmd/grpc-gateway-example-app
 *.log
+log/

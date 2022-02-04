@@ -2,19 +2,19 @@ package internal
 
 import (
 	"context"
-	"fmt"
 	"net"
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/jaronnie/grpc-gateway-example/internal/api"
 	"github.com/jaronnie/grpc-gateway-example/internal/proto"
+	"github.com/jaronnie/grpc-gateway-example/pkg/logx"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
 
 func (app *App) grpcServer() (s *grpc.Server, err error) {
-	fmt.Printf("start grpc server 0.0.0.0:%s\n", app.GrpcPort)
+	logx.Infof("start grpc server 0.0.0.0:%s\n", app.GrpcPort)
 	listen, err := net.Listen("tcp", "0.0.0.0:"+app.GrpcPort)
 	if err != nil {
 		panic(err)
@@ -33,7 +33,7 @@ func (app *App) grpcServer() (s *grpc.Server, err error) {
 }
 
 func (app *App) gatewayServer() (s *http.Server, err error) {
-	fmt.Printf("start gateway server 0.0.0.0:%s\n", app.HttpPort)
+	logx.Infof("start gateway server 0.0.0.0:%s\n", app.HttpPort)
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 	if err := proto.RegisterCoreHandlerFromEndpoint(context.Background(), mux, "0.0.0.0:"+app.GrpcPort, opts); err != nil {

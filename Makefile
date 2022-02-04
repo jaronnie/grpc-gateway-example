@@ -1,5 +1,4 @@
-AppName=grpc-gateway-example
-
+AppName=grpc-gateway-example-app
 
 .PHONY: proto
 proto:

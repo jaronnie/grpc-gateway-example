@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/jaronnie/grpc-gateway-example/pkg/logx"
+
 	"github.com/jaronnie/grpc-gateway-example/internal"
 	"github.com/jaronnie/grpc-gateway-example/pkg/booter"
 	"github.com/jaronnie/grpc-gateway-example/pkg/version"
@@ -14,7 +16,7 @@ import (
 )
 
 var (
-	appName      = "grpc-gateway-example" // must be unique
+	appName      = "grpc-gateway-example-app" // must be unique
 	exitAfterCmd = true
 )
 
@@ -61,10 +63,13 @@ func execute(app interface{}, ctx *internal.Context) (err error) {
 		}
 		abs, err := filepath.Abs(workdir)
 		if err != nil {
-			fmt.Println("set dir failed: ", err)
+			logx.Errorf("get dir %s failed", abs)
 			os.Exit(-1)
 		}
-		_ = os.Chdir(abs)
+		if err = os.Chdir(abs); err != nil {
+			logx.Errorf("set dir %s failed", abs)
+			os.Exit(-1)
+		}
 	}
 
 	// exit application when cmd mode
