@@ -6,7 +6,7 @@ import "helloworld.proto";
 import "google/api/annotations.proto";
 
 // Here is the overall greeting service definition where we define all our endpoints
-service Credential {
+service corev1 {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {
     option (google.api.http) = {
@@ -24,7 +24,7 @@ service Credential {
 
   rpc SayHello3 (HelloRequest) returns (HelloReply) {
     option (google.api.http) = {
-      post: "/api/v1/credential3"
+      post: "/api/v1/machine"
       body: "*"
     };
   }

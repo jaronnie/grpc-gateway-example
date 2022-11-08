@@ -1,4 +1,3 @@
 package api
 
-type Credential struct{}
-type Machine struct{}
+type Corev1 struct{}

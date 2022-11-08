@@ -31,7 +31,7 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = descriptor.ForMessage
 
-func request_Credential_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, client CredentialClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Corev1_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, client Corev1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -48,7 +48,7 @@ func request_Credential_SayHello_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Credential_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, server CredentialServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Corev1_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, server Corev1Server, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -65,7 +65,7 @@ func local_request_Credential_SayHello_0(ctx context.Context, marshaler runtime.
 
 }
 
-func request_Credential_SayHello2_0(ctx context.Context, marshaler runtime.Marshaler, client CredentialClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Corev1_SayHello2_0(ctx context.Context, marshaler runtime.Marshaler, client Corev1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -82,7 +82,7 @@ func request_Credential_SayHello2_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Credential_SayHello2_0(ctx context.Context, marshaler runtime.Marshaler, server CredentialServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Corev1_SayHello2_0(ctx context.Context, marshaler runtime.Marshaler, server Corev1Server, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -99,7 +99,7 @@ func local_request_Credential_SayHello2_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Credential_SayHello3_0(ctx context.Context, marshaler runtime.Marshaler, client CredentialClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Corev1_SayHello3_0(ctx context.Context, marshaler runtime.Marshaler, client Corev1Client, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -116,7 +116,7 @@ func request_Credential_SayHello3_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Credential_SayHello3_0(ctx context.Context, marshaler runtime.Marshaler, server CredentialServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Corev1_SayHello3_0(ctx context.Context, marshaler runtime.Marshaler, server Corev1Server, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HelloRequest
 	var metadata runtime.ServerMetadata
 
@@ -133,46 +133,12 @@ func local_request_Credential_SayHello3_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Machine_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, client MachineClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.SayHello(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_Machine_SayHello_0(ctx context.Context, marshaler runtime.Marshaler, server MachineServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HelloRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.SayHello(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
-// RegisterCredentialHandlerServer registers the http handlers for service Credential to "mux".
-// UnaryRPC     :call CredentialServer directly.
+// RegisterCorev1HandlerServer registers the http handlers for service Corev1 to "mux".
+// UnaryRPC     :call Corev1Server directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-func RegisterCredentialHandlerServer(ctx context.Context, mux *runtime.ServeMux, server CredentialServer) error {
+func RegisterCorev1HandlerServer(ctx context.Context, mux *runtime.ServeMux, server Corev1Server) error {
 
-	mux.Handle("POST", pattern_Credential_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -181,18 +147,18 @@ func RegisterCredentialHandlerServer(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Credential_SayHello_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Corev1_SayHello_0(rctx, inboundMarshaler, server, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Credential_SayHello2_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello2_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -201,18 +167,18 @@ func RegisterCredentialHandlerServer(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Credential_SayHello2_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Corev1_SayHello2_0(rctx, inboundMarshaler, server, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello2_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello2_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Credential_SayHello3_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello3_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -221,51 +187,23 @@ func RegisterCredentialHandlerServer(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Credential_SayHello3_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Corev1_SayHello3_0(rctx, inboundMarshaler, server, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello3_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello3_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterMachineHandlerServer registers the http handlers for service Machine to "mux".
-// UnaryRPC     :call MachineServer directly.
-// StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-func RegisterMachineHandlerServer(ctx context.Context, mux *runtime.ServeMux, server MachineServer) error {
-
-	mux.Handle("POST", pattern_Machine_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_Machine_SayHello_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_Machine_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	return nil
-}
-
-// RegisterCredentialHandlerFromEndpoint is same as RegisterCredentialHandler but
+// RegisterCorev1HandlerFromEndpoint is same as RegisterCorev1Handler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterCredentialHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterCorev1HandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -285,23 +223,23 @@ func RegisterCredentialHandlerFromEndpoint(ctx context.Context, mux *runtime.Ser
 		}()
 	}()
 
-	return RegisterCredentialHandler(ctx, mux, conn)
+	return RegisterCorev1Handler(ctx, mux, conn)
 }
 
-// RegisterCredentialHandler registers the http handlers for service Credential to "mux".
+// RegisterCorev1Handler registers the http handlers for service Corev1 to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterCredentialHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterCredentialHandlerClient(ctx, mux, NewCredentialClient(conn))
+func RegisterCorev1Handler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterCorev1HandlerClient(ctx, mux, NewCorev1Client(conn))
 }
 
-// RegisterCredentialHandlerClient registers the http handlers for service Credential
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "CredentialClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "CredentialClient"
+// RegisterCorev1HandlerClient registers the http handlers for service Corev1
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "Corev1Client".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "Corev1Client"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "CredentialClient" to call the correct interceptors.
-func RegisterCredentialHandlerClient(ctx context.Context, mux *runtime.ServeMux, client CredentialClient) error {
+// "Corev1Client" to call the correct interceptors.
+func RegisterCorev1HandlerClient(ctx context.Context, mux *runtime.ServeMux, client Corev1Client) error {
 
-	mux.Handle("POST", pattern_Credential_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -310,18 +248,18 @@ func RegisterCredentialHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Credential_SayHello_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Corev1_SayHello_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Credential_SayHello2_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello2_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -330,18 +268,18 @@ func RegisterCredentialHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Credential_SayHello2_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Corev1_SayHello2_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello2_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello2_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Credential_SayHello3_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Corev1_SayHello3_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -350,14 +288,14 @@ func RegisterCredentialHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Credential_SayHello3_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Corev1_SayHello3_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Credential_SayHello3_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Corev1_SayHello3_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -365,86 +303,17 @@ func RegisterCredentialHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 }
 
 var (
-	pattern_Credential_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "credential1"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Corev1_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "credential1"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Credential_SayHello2_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "credential2"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Corev1_SayHello2_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "credential2"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Credential_SayHello3_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "credential3"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Corev1_SayHello3_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "machine"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
-	forward_Credential_SayHello_0 = runtime.ForwardResponseMessage
+	forward_Corev1_SayHello_0 = runtime.ForwardResponseMessage
 
-	forward_Credential_SayHello2_0 = runtime.ForwardResponseMessage
+	forward_Corev1_SayHello2_0 = runtime.ForwardResponseMessage
 
-	forward_Credential_SayHello3_0 = runtime.ForwardResponseMessage
-)
-
-// RegisterMachineHandlerFromEndpoint is same as RegisterMachineHandler but
-// automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterMachineHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
-	conn, err := grpc.Dial(endpoint, opts...)
-	if err != nil {
-		return err
-	}
-	defer func() {
-		if err != nil {
-			if cerr := conn.Close(); cerr != nil {
-				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
-			}
-			return
-		}
-		go func() {
-			<-ctx.Done()
-			if cerr := conn.Close(); cerr != nil {
-				grpclog.Infof("Failed to close conn to %s: %v", endpoint, cerr)
-			}
-		}()
-	}()
-
-	return RegisterMachineHandler(ctx, mux, conn)
-}
-
-// RegisterMachineHandler registers the http handlers for service Machine to "mux".
-// The handlers forward requests to the grpc endpoint over "conn".
-func RegisterMachineHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterMachineHandlerClient(ctx, mux, NewMachineClient(conn))
-}
-
-// RegisterMachineHandlerClient registers the http handlers for service Machine
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "MachineClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "MachineClient"
-// doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "MachineClient" to call the correct interceptors.
-func RegisterMachineHandlerClient(ctx context.Context, mux *runtime.ServeMux, client MachineClient) error {
-
-	mux.Handle("POST", pattern_Machine_SayHello_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_Machine_SayHello_0(rctx, inboundMarshaler, client, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_Machine_SayHello_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	return nil
-}
-
-var (
-	pattern_Machine_SayHello_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "machine"}, "", runtime.AssumeColonVerbOpt(true)))
-)
-
-var (
-	forward_Machine_SayHello_0 = runtime.ForwardResponseMessage
+	forward_Corev1_SayHello3_0 = runtime.ForwardResponseMessage
 )

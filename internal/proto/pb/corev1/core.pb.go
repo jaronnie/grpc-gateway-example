@@ -28,21 +28,20 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 func init() { proto.RegisterFile("core.proto", fileDescriptor_f7e43720d1edc0fe) }
 
 var fileDescriptor_f7e43720d1edc0fe = []byte{
-	// 217 bytes of a gzipped FileDescriptorProto
+	// 203 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4a, 0xce, 0x2f, 0x4a,
 	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x05, 0x53, 0x52, 0x02, 0x19, 0xa9, 0x39, 0x39,
 	0xf9, 0xe5, 0xf9, 0x45, 0x39, 0x29, 0x10, 0x09, 0x29, 0x99, 0xf4, 0xfc, 0xfc, 0xf4, 0x9c, 0x54,
 	0xfd, 0xc4, 0x82, 0x4c, 0xfd, 0xc4, 0xbc, 0xbc, 0xfc, 0x92, 0xc4, 0x92, 0xcc, 0xfc, 0xbc, 0x62,
-	0x88, 0xac, 0x51, 0x17, 0x13, 0x17, 0x97, 0x73, 0x51, 0x6a, 0x4a, 0x6a, 0x5e, 0x49, 0x66, 0x62,
-	0x8e, 0x50, 0x10, 0x17, 0x47, 0x70, 0x62, 0xa5, 0x07, 0xc8, 0x0c, 0x21, 0x61, 0x88, 0x12, 0x3d,
-	0x30, 0x2f, 0x28, 0xb5, 0xb0, 0x34, 0xb5, 0xb8, 0x44, 0x4a, 0x10, 0x55, 0xb0, 0x20, 0xa7, 0x52,
-	0x49, 0xae, 0xe9, 0xf2, 0x93, 0xc9, 0x4c, 0x12, 0x4a, 0xc2, 0x60, 0x2b, 0xca, 0x0c, 0xf5, 0x93,
-	0xe1, 0xe6, 0x19, 0x5a, 0x31, 0x6a, 0x09, 0x05, 0x73, 0x71, 0xc2, 0xcc, 0x34, 0xa2, 0x86, 0xa1,
-	0x46, 0x68, 0x86, 0x1a, 0x53, 0xc3, 0x50, 0x63, 0x2b, 0x46, 0x2d, 0xa3, 0x48, 0x2e, 0x76, 0xdf,
-	0xc4, 0xe4, 0x8c, 0xcc, 0xbc, 0x54, 0x21, 0x3f, 0x32, 0x02, 0x42, 0x0a, 0x6c, 0xbc, 0x88, 0x12,
-	0x3f, 0xcc, 0xf8, 0x5c, 0x88, 0x61, 0x56, 0x8c, 0x5a, 0x4e, 0xbc, 0x51, 0xdc, 0x7a, 0xfa, 0x05,
-	0x49, 0xfa, 0xa0, 0x18, 0x2b, 0x33, 0x4c, 0x62, 0x03, 0x6b, 0x36, 0x06, 0x04, 0x00, 0x00, 0xff,
-	0xff, 0x23, 0xef, 0xe0, 0x9f, 0xc2, 0x01, 0x00, 0x00,
+	0x88, 0xac, 0x51, 0x13, 0x13, 0x17, 0x1b, 0xc8, 0x94, 0x32, 0x43, 0xa1, 0x20, 0x2e, 0x8e, 0xe0,
+	0xc4, 0x4a, 0x0f, 0x90, 0x7e, 0x21, 0x61, 0x88, 0xb4, 0x1e, 0x98, 0x17, 0x94, 0x5a, 0x58, 0x9a,
+	0x5a, 0x5c, 0x22, 0x25, 0x88, 0x2a, 0x58, 0x90, 0x53, 0xa9, 0x24, 0xd7, 0x74, 0xf9, 0xc9, 0x64,
+	0x26, 0x09, 0x25, 0x61, 0xb0, 0xf1, 0x65, 0x86, 0xfa, 0xc9, 0x45, 0xa9, 0x29, 0xa9, 0x79, 0x25,
+	0x99, 0x89, 0x39, 0x86, 0x56, 0x8c, 0x5a, 0x42, 0xc1, 0x5c, 0x9c, 0x30, 0x33, 0x8d, 0xa8, 0x61,
+	0xa8, 0x11, 0xc8, 0x50, 0x7f, 0x84, 0xa1, 0xc6, 0x44, 0x1b, 0x2a, 0x05, 0x36, 0x54, 0x44, 0x89,
+	0x1f, 0x66, 0x68, 0x6e, 0x62, 0x72, 0x46, 0x66, 0x5e, 0xaa, 0x15, 0xa3, 0x96, 0x13, 0x6f, 0x14,
+	0xb7, 0x9e, 0x7e, 0x41, 0x92, 0x3e, 0x24, 0x20, 0x92, 0xd8, 0xc0, 0x9a, 0x8d, 0x01, 0x01, 0x00,
+	0x00, 0xff, 0xff, 0xbd, 0xb2, 0x7e, 0xf2, 0x5f, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -53,220 +52,146 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// CredentialClient is the client API for Credential service.
+// Corev1Client is the client API for Corev1 service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type CredentialClient interface {
+type Corev1Client interface {
 	// Sends a greeting
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 	SayHello2(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 	SayHello3(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 }
 
-type credentialClient struct {
+type corev1Client struct {
 	cc *grpc.ClientConn
 }
 
-func NewCredentialClient(cc *grpc.ClientConn) CredentialClient {
-	return &credentialClient{cc}
+func NewCorev1Client(cc *grpc.ClientConn) Corev1Client {
+	return &corev1Client{cc}
 }
 
-func (c *credentialClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+func (c *corev1Client) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
 	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/proto.Credential/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.corev1/SayHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialClient) SayHello2(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+func (c *corev1Client) SayHello2(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
 	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/proto.Credential/SayHello2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.corev1/SayHello2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialClient) SayHello3(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+func (c *corev1Client) SayHello3(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
 	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/proto.Credential/SayHello3", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.corev1/SayHello3", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CredentialServer is the server API for Credential service.
-type CredentialServer interface {
+// Corev1Server is the server API for Corev1 service.
+type Corev1Server interface {
 	// Sends a greeting
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
 	SayHello2(context.Context, *HelloRequest) (*HelloReply, error)
 	SayHello3(context.Context, *HelloRequest) (*HelloReply, error)
 }
 
-// UnimplementedCredentialServer can be embedded to have forward compatible implementations.
-type UnimplementedCredentialServer struct {
+// UnimplementedCorev1Server can be embedded to have forward compatible implementations.
+type UnimplementedCorev1Server struct {
 }
 
-func (*UnimplementedCredentialServer) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
+func (*UnimplementedCorev1Server) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
 }
-func (*UnimplementedCredentialServer) SayHello2(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
+func (*UnimplementedCorev1Server) SayHello2(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello2 not implemented")
 }
-func (*UnimplementedCredentialServer) SayHello3(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
+func (*UnimplementedCorev1Server) SayHello3(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello3 not implemented")
 }
 
-func RegisterCredentialServer(s *grpc.Server, srv CredentialServer) {
-	s.RegisterService(&_Credential_serviceDesc, srv)
+func RegisterCorev1Server(s *grpc.Server, srv Corev1Server) {
+	s.RegisterService(&_Corev1_serviceDesc, srv)
 }
 
-func _Credential_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Corev1_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HelloRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialServer).SayHello(ctx, in)
+		return srv.(Corev1Server).SayHello(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.Credential/SayHello",
+		FullMethod: "/proto.corev1/SayHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServer).SayHello(ctx, req.(*HelloRequest))
+		return srv.(Corev1Server).SayHello(ctx, req.(*HelloRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Credential_SayHello2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Corev1_SayHello2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HelloRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialServer).SayHello2(ctx, in)
+		return srv.(Corev1Server).SayHello2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.Credential/SayHello2",
+		FullMethod: "/proto.corev1/SayHello2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServer).SayHello2(ctx, req.(*HelloRequest))
+		return srv.(Corev1Server).SayHello2(ctx, req.(*HelloRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Credential_SayHello3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Corev1_SayHello3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HelloRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialServer).SayHello3(ctx, in)
+		return srv.(Corev1Server).SayHello3(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.Credential/SayHello3",
+		FullMethod: "/proto.corev1/SayHello3",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServer).SayHello3(ctx, req.(*HelloRequest))
+		return srv.(Corev1Server).SayHello3(ctx, req.(*HelloRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Credential_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Credential",
-	HandlerType: (*CredentialServer)(nil),
+var _Corev1_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "proto.corev1",
+	HandlerType: (*Corev1Server)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SayHello",
-			Handler:    _Credential_SayHello_Handler,
+			Handler:    _Corev1_SayHello_Handler,
 		},
 		{
 			MethodName: "SayHello2",
-			Handler:    _Credential_SayHello2_Handler,
+			Handler:    _Corev1_SayHello2_Handler,
 		},
 		{
 			MethodName: "SayHello3",
-			Handler:    _Credential_SayHello3_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "core.proto",
-}
-
-// MachineClient is the client API for Machine service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type MachineClient interface {
-	// Sends a greeting
-	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
-}
-
-type machineClient struct {
-	cc *grpc.ClientConn
-}
-
-func NewMachineClient(cc *grpc.ClientConn) MachineClient {
-	return &machineClient{cc}
-}
-
-func (c *machineClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/proto.Machine/SayHello", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MachineServer is the server API for Machine service.
-type MachineServer interface {
-	// Sends a greeting
-	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
-}
-
-// UnimplementedMachineServer can be embedded to have forward compatible implementations.
-type UnimplementedMachineServer struct {
-}
-
-func (*UnimplementedMachineServer) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
-}
-
-func RegisterMachineServer(s *grpc.Server, srv MachineServer) {
-	s.RegisterService(&_Machine_serviceDesc, srv)
-}
-
-func _Machine_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelloRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MachineServer).SayHello(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.Machine/SayHello",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MachineServer).SayHello(ctx, req.(*HelloRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-var _Machine_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Machine",
-	HandlerType: (*MachineServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SayHello",
-			Handler:    _Machine_SayHello_Handler,
+			Handler:    _Corev1_SayHello3_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
