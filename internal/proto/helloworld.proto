@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option go_package = "./pb/corev1";
 package proto;
 
 // The request message containing the user's name
