@@ -29,3 +29,14 @@ service Credential {
     };
   }
 }
+
+// protoc-gen-go-httpsdk:scopeVersion=corev1
+service Machine {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      post: "/api/v1/machine"
+      body: "*"
+    };
+  }
+}
